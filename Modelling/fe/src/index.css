@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+@import url("https://fonts.googleapis.com/css2?family=Anuphan:wght@200&family=Press+Start+2P&display=swap");
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100vh;
+}
+
+#root {
+  height: 100vh;
+}
+
+body {
+  margin: 0;
+  font-family: "Anuphan", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.my--app {
+  height: 100vh;
+}
+
+.uwc--background {
+  background-image: url("./assets/UWC-background.png");
+  background-size: cover;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  min-width: 500px;
+  background-attachment: fixed;
+}
+
+.uwc--title {
+  color: white;
+  font-size: 100px;
+  font-weight: 600;
+  height: 132px;
+  margin-top: 30px;
+}
+
+.uwc--logo {
+  text-align: center;
+  background-color: #18ef21;
+  border-radius: 50%;
+  top: 136px;
+  margin-top: 40px;
+}
+
+.uwc--logo-img {
+  width: 100px;
+  padding: 20px;
+}
