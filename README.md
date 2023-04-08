@@ -15,7 +15,7 @@ This will execute the server.js and you can access that via `http://localhost:80
 Similarly, you can run the following commands to run a client-side web app.
 #### `npm install`
 This allows you to install the necessary dependencies for the server to run
-### `npm start`
+#### `npm start`
 This will execute the index.js and you can access the project via `http://localhost:3000`.
 
 ## In case there's something run on the two ports, you can run:
@@ -24,7 +24,7 @@ This will execute the index.js and you can access the project via `http://localh
 
 This will returns a list of process runs on port 3000 (Assume that you use Linux)
 
-### `kill -9 PID`
+#### `kill -9 PID`
 
 This will end the process with the PID you can obtain from the previos commands. Now you can try the methods above to run the project.
 
