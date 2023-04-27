@@ -2,6 +2,7 @@
     z-index: 2;
     right: 0;
     position: absolute;
+    margin: 1rem;
 }
 
 .Profile--showBtn {
@@ -20,39 +21,41 @@
     background-color: #4CAF50;
 }
 
-.Profile--showBtn button:hover{
+.Profile--showBtn button:hover {
     opacity: 70%;
     cursor: pointer;
     background-color: #D8D8D8;
 }
 
-.Profile--Display{
+.Profile--Display {
     width: 450px;
     height: 400px;
     background-color: white;
     border: none;
-    border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 }
-.Profile--navbar{
+
+.Profile--navbar {
     height: 58px;
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     background-color: #4CAF50;
     border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
-.Profile--section{
+.Profile--section {
     display: flex;
     align-items: center;
     width: 50%;
     font-size: 30px;
 }
 
-.Profile--section--component{
+.Profile--section--component {
     font-size: 30px;
     border: none;
     width: 93px;
@@ -61,28 +64,46 @@
     color: white;
 }
 
-.Profile--section--component:hover{
+.Profile--section--component:hover {
     opacity: 70%;
     background-color: #D8D8D8;
     cursor: pointer;
     border-radius: 15px;
 }
-.close-btn{
+
+.close-btn {
     background-color: #4CAF50;
-    border:none;
+    border: none;
     width: 52px;
     align-items: center;
     display: flex;
     text-align: center;
     justify-content: center;
+    border-radius: 10px;
 }
 
-.close-btn:hover{
+.close-btn:hover {
     background-color: red;
     cursor: pointer;
     border-radius: 10px;
 }
 
-.Profile--section > button{
+#chat {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
 
-} 
+.message {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+.sent {
+    background-color: #DCF8C6;
+    float: right;
+}
+.received {
+    background-color: #FFFFFF;
+    float: left;
+}
