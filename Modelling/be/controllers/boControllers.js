@@ -9,6 +9,93 @@ exports.infoBO = async (req, res) => {
   res.send(user);
 };
 
+exports.conversation = async (req, res) => {
+  //display conversation between 2 users
+// - from_userid: the current user
+// - to_userid: the user that the current user is chatting with
+// - timestamp: the time that the message is sent
+// - message: the message content
+  const from_userid = req.body.from_userid;
+  const to_userid = req.body.to_userid;
+  const messages = await dbo
+    .getDb()
+    .collection("messages")
+    .find({
+      $or: [
+        { from_userid: from_userid, to_userid: to_userid },
+        { from_userid: to_userid, to_userid: from_userid },
+      ],
+    })
+    .toArray();
+  res.send(messages);
+};
+
+exports.listMessages = async (req, res) => {
+  //console.log("Hello");
+  //console.log(req.body);
+  const user_id = req.body.user_id;
+  const messages = await dbo
+    .getDb()
+    .collection("messages")
+    .find({
+      $or: [
+        { from_userid: user_id },
+        { to_userid: user_id }
+      ]
+    })
+    .toArray();
+  
+  const avaUrl = await dbo
+    .getDb()
+    .collection("back-officer")
+    .find({})
+    .toArray();
+  
+  for (let i = 0; i < messages.length; i++) {
+    // for each messages, we need to find avaUrl user_id
+    for (let j = 0; j < avaUrl.length; j++) {
+      if (messages[i].to_userid == avaUrl[j].user_id) {
+        messages[i].target_url = avaUrl[j].ava_url;
+      }
+    }
+  }
+
+  console.log(messages);
+  res.send(messages);
+};
+
+//add a message to the database.The mongoDB has the following structure:
+// - from_userid: the current user
+// - to_userid: the user that the current user is chatting with
+// - timestamp: the time that the message is sent
+// - message: the message content
+exports.addMessages = async (req, res) => {
+  const from_userid = req.body.from_userid;
+  const to_userid = req.body.to_userid;
+  const timestamp = Date.now();
+  const message = req.body.message;
+  const newMessage = {
+    from_userid: from_userid,
+    to_userid: to_userid,
+    timestamp: timestamp,
+    message: message,
+  };
+  const result = await dbo
+    .getDb()
+    .collection("messages")
+    .insertOne(newMessage);
+  res.send(result);
+};
+
+exports.getAvaUrl = async (req, res) => {
+  const user_id = req.body.user_id;
+  const avaUrl = await dbo
+    .getDb()
+    .collection("back-officer")
+    .findOne({ user_id: user_id });
+  res.send(avaUrl.ava_url);
+};
+
 exports.viewMCP = async (req, res) => {
   const MCPs = await dbo
     .getDb()
