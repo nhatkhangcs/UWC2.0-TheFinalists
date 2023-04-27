@@ -1,16 +1,19 @@
 import "./Profile.css";
 import { RxAvatar } from "react-icons/rx";
-import React from "react";
-import { AiFillIdcard } from "react-icons/ai";
+import React, { useState, useEffect } from "react";
 import { BsFillPersonVcardFill } from "react-icons/bs";
 import { BsFillChatDotsFill } from "react-icons/bs";
 import { AiFillCloseCircle } from "react-icons/ai";
 import Card from "./Card/Card";
 import axios from "axios";
+import ChatContainer from "./Chat/ChatContainer";
+
+
 function Profile(props) {
   const [profileSection, setProfileSection] = React.useState("");
   const [profileInfo, setProfile] = React.useState({});
-  React.useEffect(() => {
+
+  useEffect(() => {
     axios
       .post("http://localhost:8000/infoBO", { user_id: props.userID })
       .then((res) => {
@@ -21,6 +24,7 @@ function Profile(props) {
   function handleProfileClick(clickedProfile) {
     setProfileSection(clickedProfile);
   }
+
   return (
     <div className="Profile--container">
       {!props.showProfile ? (
@@ -38,7 +42,9 @@ function Profile(props) {
                 className="Profile--section--component"
               />
               <BsFillChatDotsFill
+
                 onClick={() => handleProfileClick("chat")}
+
                 className="Profile--section--component"
               />
             </div>
@@ -55,7 +61,13 @@ function Profile(props) {
           {profileSection == "profile" ? (
             <Card profileInfo={profileInfo}></Card>
           ) : profileSection == "chat" ? (
-            <div>Chat goes here</div>
+            <div id="chat">
+              <div class="message received">Hi there, how are you doing?</div>
+              <div class="message sent">I'm doing pretty well, thanks for asking. How about you?</div>
+              <div class="message received">I'm doing well too, thanks for asking. What have you been up to?</div>
+              <div class="message sent">Heading for MCP1</div>
+              <div class="message received">OK, have a good day</div>
+            </div>
           ) : (
             <Card profileInfo={profileInfo} />
           )}
@@ -64,4 +76,5 @@ function Profile(props) {
     </div>
   );
 }
+
 export default Profile;
