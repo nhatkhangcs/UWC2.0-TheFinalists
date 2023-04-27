@@ -1,12 +1,14 @@
 # Running Frontend and Backend with npm start and nodemon server.js
-In this markdown file, we will discuss how to run frontend and backend servers using npm start and nodemon server.js. This guide assumes that you have already set up a project with a frontend and a backend.
+In this markdown file, we will discuss how to run frontend and backend servers using npm start and `nodemon server.js`. 
+
+This guide assumes that you have already set up a project with a frontend and a backend.
 
 ## Prerequisites
 Before getting started, you need to make sure that you have the following installed on your computer:
 
-Node.js
-npm
-nodemon (for the backend)
+``Node.js``
+``npm``
+``nodemon`` (for the backend)
 
 If you don't have these installed, you can download and install them from the official websites.
 
