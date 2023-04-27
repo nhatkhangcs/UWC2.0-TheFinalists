@@ -6,7 +6,13 @@ const router = express.Router();
 router.get("/viewMCP", boController.viewMCP);
 router.get("/viewWorker", boController.viewWorker)
 router.get("/viewGroup",boController.viewGroup);
-router.get("/viewVehicle",boController.viewVehicle)
+router.get("/viewVehicle",boController.viewVehicle);
+router.get("/addMessages", boController.addMessages);
+router.get("/conversation", boController.conversation);
+// console.log(boController.listMessages)
+// get message
+router.post("/infoBO/listMessages", boController.listMessages);
+router.post("/infoBO/getAvaUrl", boController.getAvaUrl);
 router.post("/findGroup",boController.findGroup)
 router.post("/infoBO", boController.infoBO);
 router.post("/assignUser",boController.assignUser);
@@ -15,4 +21,5 @@ router.post("/removeGroup",boController.removeGroup);
 router.post("/findWorker",boController.findWorker)
 router.post("/listInfo",boController.listInfo)
 router.post("/writeDescription",boController.writeDescription)
+
 module.exports = router;
